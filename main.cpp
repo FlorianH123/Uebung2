@@ -39,12 +39,49 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
         if (*s2 == '\0') {
             return 0;
         } else {
+            while(*s2 == ' ') {
+                *s2++;
+            }
+
+            if (*s2 == '\0') {
+                return 0;
+            }
+
             return -1;
         }
     } else {
-        return 1;
+        while(*s1 == ' ') {
+            *s1++;
+        }
+
+        if (*s1 == '\0') {
+            return 0;
+        }
+
+        return -1;
     }
 }
+
+template <typename Iterator>
+void insertion_sort(Iterator first, Iterator last) {
+    Iterator tmp;
+    Iterator next;
+    while (first != last) {
+        next = *first++;
+        *first--;
+        if (*first > *next) {
+            tmp = first;
+            first = next;
+            next = tmp;
+
+
+        }
+
+        *first++;
+    }
+
+}
+
 
 void printTestsPartA() {
     cout << "<-- Tests fuer Teilaufgabe A -->" << endl;
@@ -92,6 +129,9 @@ void printTestsPartB() {
 
     cout << R"(" aaa ", " aaa " expected 0)" << endl;
     cout << "actual " << strcmp_ign_wsp(" aaa ", " aaa ") << "\n" << endl;
+
+    cout << R"("aaa", "aaa " expected 0)" << endl;
+    cout << "actual " << strcmp_ign_wsp("aaa", "aaa ") << "\n" << endl;
 
     cout << R"(" a a a ", "a a a" expected 0)" << endl;
     cout << "actual " << strcmp_ign_wsp(" a a a ", "a a a") << "\n" << endl;
