@@ -60,15 +60,6 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
 
 template <typename Iterator>
 void insertion_sort(Iterator first, Iterator last) {
-    Iterator tmp;
-    for (Iterator it = first; it != last; ++it)
-        if (it > it++) {
-            it--;
-            tmp = it;
-            it = it++;
-            it = tmp;
-            it--;
-        }
 }
 
 void printTestsPartA() {
