@@ -1,4 +1,6 @@
 #include <iostream>
+
+
 using namespace std;
 
 int countWords(const char *string) {
@@ -9,7 +11,7 @@ int countWords(const char *string) {
             count++;
 
             while (*string != ' ' && *string != '\t' && *string != '\n' && *string != '\0') {
-                *string++;
+                string++;
             }
         }
     } while (*string++);
@@ -20,12 +22,12 @@ int countWords(const char *string) {
 int strcmp_ign_wsp(const char *s1, const char *s2) {
     while (*s1 != '\0' && *s2 != '\0') {
         if (*s1 == *s2) {
-            *s1++;
-            *s2++;
+            s1++;
+            s2++;
         } else if (*s1 == ' ') {
-            *s1++;
+            s1++;
         } else if (*s2 == ' ') {
-            *s2++;
+            s2++;
         } else {
             if (*s1 > *s2) {
                 return 1;
@@ -41,7 +43,7 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
                 return -1;
             }
 
-            *s2++;
+            s2++;
         }
     } else {
         while (*s1 != '\0') {
@@ -49,7 +51,7 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
                 return 1;
             }
 
-            *s1++;
+            s1++;
         }
     }
 
@@ -59,23 +61,15 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
 template <typename Iterator>
 void insertion_sort(Iterator first, Iterator last) {
     Iterator tmp;
-    Iterator next;
-    while (first != last) {
-        next = *first++;
-        *first--;
-        if (*first > *next) {
-            tmp = first;
-            first = next;
-            next = tmp;
-
-
+    for (Iterator it = first; it != last; ++it)
+        if (it > it++) {
+            it--;
+            tmp = it;
+            it = it++;
+            it = tmp;
+            it--;
         }
-
-        *first++;
-    }
-
 }
-
 
 void printTestsPartA() {
     cout << "<-- Tests fuer Teilaufgabe A -->" << endl;
