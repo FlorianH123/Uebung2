@@ -83,33 +83,33 @@ void printTestsPartA() {
     // Tests auf Blank
     cout << "Tests auf Blank\n" << endl;
 
-    cout << R"("Hallo" expected 1)" << endl;
-    cout << "actual " << countWords("Hallo") << "\n" <<endl;
+    cout << R"("Hallo" expected 1)";
+    cout << " actual " << countWords("Hallo") << "\n" <<endl;
 
-    cout << R"(" Hallo" expected 1)" << endl;
-    cout << "actual " << countWords(" Hallo") << "\n" << endl;
+    cout << R"(" Hallo" expected 1)";
+    cout << " actual " << countWords(" Hallo") << "\n" << endl;
 
-    cout << R"(" Hallo " expected 1)" << endl;
-    cout << "actual " << countWords(" Hallo ") << "\n" << endl;
+    cout << R"(" Hallo " expected 1)";
+    cout << " actual " << countWords(" Hallo ") << "\n" << endl;
 
-    cout << R"("Hallo Du" expected 2)" << endl;
-    cout << "actual " << countWords("Hallo Du") << "\n" << endl;
+    cout << R"("Hallo Du" expected 2)";
+    cout << " actual " << countWords("Hallo Du") << "\n" << endl;
 
-    cout << R"("Hallo  Du" expected 2)" << endl;
-    cout << "actual " << countWords("Hallo  Du") << "\n" << endl;
+    cout << R"("Hallo  Du" expected 2)";
+    cout << " actual " << countWords("Hallo  Du") << "\n" << endl;
 
-    cout << R"("  Hallo  Du  " expected 2)" << endl;
-    cout << "actual " << countWords("  Hallo  Du  ") << "\n" << endl;
+    cout << R"("  Hallo  Du  " expected 2)";
+    cout << " actual " << countWords("  Hallo  Du  ") << "\n" << endl;
 
     //Tests auf Tabulator
-    cout << R"("\tHallo" expected 1)" << endl;
-    cout << "actual " << countWords("\tHallo") << "\n" << endl;
+    cout << R"("\tHallo" expected 1)";
+    cout << " actual " << countWords("\tHallo") << "\n" << endl;
 
-    cout << R"("\tHalloDu\t" expected 1)" << endl;
-    cout << "actual " << countWords("\tHallo\t") << "\n" << endl;
+    cout << R"("\tHalloDu\t" expected 1)";
+    cout << " actual " << countWords("\tHallo\t") << "\n" << endl;
 
-    cout << R"("\tHallo\tDu\t" expected 2)" << endl;
-    cout << "actual " << countWords("\tHallo\tDu\t") << "\n" << endl;
+    cout << R"("\tHallo\tDu\t" expected 2)";
+    cout << " actual " << countWords("\tHallo\tDu\t") << "\n" << endl;
 }
 
 void printTestsPartB() {
@@ -118,53 +118,53 @@ void printTestsPartB() {
     //--- Tests auf Gleichheit ---
     cout << "Tests auf Gleichheit" << "\n" << endl;
 
-    cout << R"(" aaa ", "aaa" expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp(" aaa ", "aaa") << "\n" << endl;
+    cout << R"(" aaa ", "aaa" expected 0)";
+    cout << " actual " << strcmp_ign_wsp(" aaa ", "aaa") << "\n" << endl;
 
-    cout << R"(" aaa ", " aaa " expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp(" aaa ", " aaa ") << "\n" << endl;
+    cout << R"(" aaa ", " aaa " expected 0)";
+    cout << " actual " << strcmp_ign_wsp(" aaa ", " aaa ") << "\n" << endl;
 
-    cout << R"("aaa", "aaa " expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aaa", "aaa ") << "\n" << endl;
+    cout << R"("aaa", "aaa " expected 0)";
+    cout << " actual " << strcmp_ign_wsp("aaa", "aaa ") << "\n" << endl;
 
-    cout << R"(" a a a ", "a a a" expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp(" a a a ", "a a a") << "\n" << endl;
+    cout << R"(" a a a ", "a a a" expected 0)";
+    cout << " actual " << strcmp_ign_wsp(" a a a ", "a a a") << "\n" << endl;
 
-    cout << R"("aaa", "aaa" expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aaa", "aaa") << "\n" << endl;
+    cout << R"("aaa", "aaa" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("aaa", "aaa") << "\n" << endl;
 
-    cout << R"("a b c", "abc" expected 0)" << endl;
-    cout << "actual " << strcmp_ign_wsp("a b c", "abc") << "\n" << endl;
+    cout << R"("a b c", "abc" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("a b c", "abc") << "\n" << endl;
 
     // Tests auf String1 > String2
     cout << "Test auf String 1 lexikalisch groesser als String 2" << "\n" << endl;
 
-    cout << R"("aba", "aaa" expected 1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aba", "aaa") << "\n" << endl;
+    cout << R"("aba", "aaa" expected 1)";
+    cout << " actual " << strcmp_ign_wsp("aba", "aaa") << "\n" << endl;
 
-    cout << R"("   aaab", "aaa" expected 1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("   aaab", "aaa") << "\n" << endl;
+    cout << R"("   aaab", "aaa" expected 1)";
+    cout << " actual " << strcmp_ign_wsp("   aaab", "aaa") << "\n" << endl;
 
-    cout << R"(" a b c ", " a a a " expected 1)" << endl;
-    cout << "actual " << strcmp_ign_wsp(" a b c ", " a a a ") << "\n" << endl;
+    cout << R"(" a b c ", " a a a " expected 1)";
+    cout << " actual " << strcmp_ign_wsp(" a b c ", " a a a ") << "\n" << endl;
 
     // Tests auf String1 < String2
     cout << "Test auf String 1 lexikalisch groesser als String 2" << "\n" << endl;
 
-    cout << R"("aaa", "aa ab" expected -1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aaa", "aa ab") << "\n" << endl;
+    cout << R"("aaa", "aa ab" expected -1)";
+    cout << " actual " << strcmp_ign_wsp("aaa", "aa ab") << "\n" << endl;
 
-    cout << R"(" a a a ", " aa ab " expected -1)" << endl;
-    cout << "actual " << strcmp_ign_wsp(" a a a ", " aa ab ") << "\n" << endl;
+    cout << R"(" a a a ", " aa ab " expected -1)";
+    cout << " actual " << strcmp_ign_wsp(" a a a ", " aa ab ") << "\n" << endl;
 
-    cout << R"("aaa", "ab" expected -1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aaa", "ab") << "\n" << endl;
+    cout << R"("aaa", "ab" expected -1)";
+    cout << " actual " << strcmp_ign_wsp("aaa", "ab") << "\n" << endl;
 
-    cout << R"("aa", "ab " expected -1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aa", "ab ") << "\n" << endl;
+    cout << R"("aa", "ab " expected -1)";
+    cout << " actual " << strcmp_ign_wsp("aa", "ab ") << "\n" << endl;
 
-    cout << R"("aaa ", "ab" expected -1)" << endl;
-    cout << "actual " << strcmp_ign_wsp("aaa ", "ab") << "\n" << endl;
+    cout << R"("aaa ", "ab" expected -1)";
+    cout << " actual " << strcmp_ign_wsp("aaa ", "ab") << "\n" << endl;
 }
 
 int main() {
