@@ -2,6 +2,27 @@
 
 using namespace std;
 
+void printTestsPartA();
+void printTestsPartB();
+template <typename T>
+void insertionSort(T first, T last);
+
+int main() {
+    // Tests für Aufgabenteil A
+    printTestsPartA();
+
+    // Tests für Aufgabenteil B
+    printTestsPartB();
+
+    int array[] = {2,9,1,4,7};
+    insertionSort(array, array+4);
+
+    for (int i : array) {
+        cout << "Wert: " << i << endl;
+    }
+    return 0;
+}
+
 int countWords(const char *string) {
     int count = 0;
 
@@ -45,13 +66,17 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
     return 0;
 }
 
-template <class Iterator>
-void insertionSort(Iterator first, Iterator last) {
-    int key, j;
-
-    for (; first != last ; first++) {
-        printf(first);
+template<typename T>
+void insertionSort(T first, T last) {
+    T valueToSort;
+    //the range is empty if first and last are equal
+    if (first == last) {
+        return;
     }
+
+    *valueToSort = *first;
+    *first = *last;
+    *last = *valueToSort;
 }
 
 void printTestsPartA() {
@@ -154,16 +179,4 @@ void printTestsPartB() {
 
     cout << R"("aaa ", "ab" expected -1)";
     cout << " actual " << strcmp_ign_wsp("aaa ", "ab") << "\n" << endl;
-}
-
-int main() {
-    // Tests für Aufgabenteil A
-    printTestsPartA();
-
-    // Tests für Aufgabenteil B
-    printTestsPartB();
-
-    //int array[] = {1,2,3,4,5};
-   // insertionSort(*array, *array+5);
-    return 0;
 }
