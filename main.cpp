@@ -176,7 +176,7 @@ void printTestsPartB() {
 
 template <typename T>
 void printArray(T array, int n) {
-    for(int i = 1; i <= n; i++) {
+    for(int i = 0; i <= n; i++) {
         cout << array[i] << " ";
     }
 
