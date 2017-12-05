@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 void printTestsPartA();
@@ -10,6 +9,11 @@ void insertionSort(T first, T last);
 template <typename T>
 void printArray(T, int);
 
+/**
+ * Methode um die Anzahl an Woertern in einem char String zu zaehlen
+ * @param string char String
+ * @return Anzahl an Woertern
+ */
 int countWords(const char *string) {
     int count = 0;
 
@@ -26,6 +30,12 @@ int countWords(const char *string) {
     return count;
 }
 
+/**
+ * Vergleicht lexikalisch zwei String ohne Lerrzeichen zu beachten
+ * @param s1 String1
+ * @param s2 String2
+ * @return -1 String1 < String2, 0 String1 = String2, 1 String1 > String2
+ */
 int strcmp_ign_wsp(const char *s1, const char *s2) {
     if (*s1 == '\0' && *s2 != '\0' && *s2 != ' ') {
         return -1;
@@ -53,6 +63,12 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
     return 0;
 }
 
+/**
+ * Sortieren von beliebigen gleichen Typen mit insertion sort
+ * @tparam T
+ * @param first linke Schranke des Arrays
+ * @param last  rechte Schranke des Arrays
+ */
 template<typename T>
 void insertionSort(T first, T const last) {
     auto valueToSort = *first;
