@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 using namespace std;
 
 int countWords(const char *string) {
@@ -24,9 +23,9 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
         if (*s1 == *s2) {
             s1++;
             s2++;
-        } else if (*s1 == ' ') {
+        } else if (*s1 == ' ' || *s1 == '\n' || *s1 == '\t') {
             s1++;
-        } else if (*s2 == ' ') {
+        } else if (*s2 == ' ' || *s2 == '\n' || *s2 == '\t') {
             s2++;
         } else {
             if (*s1 > *s2) {
@@ -37,9 +36,10 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
         }
     }
 
+    // Weiterer Vergleich, wenn ein String Pointer auf '\0' zeigt
     if (*s1 == '\0') {
         while (*s2 != '\0') {
-            if (*s2 != ' ') {
+            if (*s2 != ' ' && *s2 != '\n' && *s2 != '\t') {
                 return -1;
             }
 
@@ -47,7 +47,7 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
         }
     } else {
         while (*s1 != '\0') {
-            if (*s1 != ' ') {
+            if (*s1 != ' ' && *s1 != '\n' && *s1 != '\t') {
                 return 1;
             }
 
@@ -58,8 +58,13 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
     return 0;
 }
 
-template <typename Iterator>
-void insertion_sort(Iterator first, Iterator last) {
+template <class Iterator>
+void insertionSort(Iterator first, Iterator last) {
+    int key, j;
+
+    for (; first != last ; first++) {
+        printf(first);
+    }
 }
 
 void printTestsPartA() {
@@ -121,6 +126,18 @@ void printTestsPartB() {
     cout << R"("a b c", "abc" expected 0)";
     cout << " actual " << strcmp_ign_wsp("a b c", "abc") << "\n" << endl;
 
+    cout << R"("a\nb\nc", "abc" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("a\nb\nc", "abc") << "\n" << endl;
+
+    cout << R"("a\tb\tc", "abc" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("a\tb\tc", "abc") << "\n" << endl;
+
+    cout << R"("a\n b\ nc", "abc" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("a\n b\n c", "abc") << "\n" << endl;
+
+    cout << R"("a\n\tb\n\tc", "abc" expected 0)";
+    cout << " actual " << strcmp_ign_wsp("a\n\tb\n\tc", "abc") << "\n" << endl;
+
     // Tests auf String1 > String2
     cout << "Test auf String 1 lexikalisch groesser als String 2" << "\n" << endl;
 
@@ -159,5 +176,7 @@ int main() {
     // Tests für Aufgabenteil B
     printTestsPartB();
 
+    //int array[] = {1,2,3,4,5};
+   // insertionSort(*array, *array+5);
     return 0;
 }
