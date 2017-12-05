@@ -14,7 +14,7 @@ int main() {
     // Tests für Aufgabenteil B
     printTestsPartB();
 
-    int array[] = {2,9,1,4,7};
+    int array[] = {5,2,4,6,3};
     insertionSort(array, array+4);
 
     for (int i : array) {
@@ -67,16 +67,25 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
 }
 
 template<typename T>
-void insertionSort(T first, T last) {
-    T valueToSort;
+void insertionSort(T first, T const last) {
+    auto valueToSort = *first;
+    T j;
+    T firstValue = first;
+    T tmp;
     //the range is empty if first and last are equal
     if (first == last) {
         return;
     }
 
-    *valueToSort = *first;
-    *first = *last;
-    *last = *valueToSort;
+    for (firstValue += 1; firstValue <= last; firstValue++) {
+        valueToSort = *firstValue;
+        j = firstValue;
+        while (j > first && *(j - 1) > valueToSort) {
+            *j = *(j - 1);
+            j--;
+        }
+        *j = valueToSort;
+    }
 }
 
 void printTestsPartA() {
