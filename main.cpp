@@ -19,42 +19,29 @@ int countWords(const char *string) {
 }
 
 int strcmp_ign_wsp(const char *s1, const char *s2) {
-    while (*s1 != '\0' && *s2 != '\0') {
-        if (*s1 == *s2) {
-            s1++;
-            s2++;
-        } else if (*s1 == ' ' || *s1 == '\n' || *s1 == '\t') {
-            s1++;
-        } else if (*s2 == ' ' || *s2 == '\n' || *s2 == '\t') {
-            s2++;
+    if (*s1 == '\0' && *s2 != '\0' && *s2 != ' ') {
+        return -1;
+    } else if (*s1 != '\0' && *s2 == '\0' && *s1 != ' ') {
+        return 1;
+    } else if (*s1 != '\0' && *s2 != '\0') {
+        if (*s1 == ' ' || *s1 == '\t' || *s1 == '\n') {
+            return strcmp_ign_wsp(++s1, s2);
+        }
+
+        if (*s2 == ' ' || *s2 == '\t' || *s2 == '\n') {
+            return strcmp_ign_wsp(s1, ++s2);
+        }
+
+        if (*s1 > *s2) {
+            return 1;
+        }
+
+        if (*s1 < *s2) {
+            return -1;
         } else {
-            if (*s1 > *s2) {
-                return 1;
-            } else if (*s1 < *s2) {
-                return -1;
-            }
+            return strcmp_ign_wsp(++s1, ++s2);
         }
     }
-
-    // Weiterer Vergleich, wenn ein String Pointer auf '\0' zeigt
-    if (*s1 == '\0') {
-        while (*s2 != '\0') {
-            if (*s2 != ' ' && *s2 != '\n' && *s2 != '\t') {
-                return -1;
-            }
-
-            s2++;
-        }
-    } else {
-        while (*s1 != '\0') {
-            if (*s1 != ' ' && *s1 != '\n' && *s1 != '\t') {
-                return 1;
-            }
-
-            s1++;
-        }
-    }
-
     return 0;
 }
 
