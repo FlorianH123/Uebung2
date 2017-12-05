@@ -1,11 +1,12 @@
 #include <iostream>
-
 using namespace std;
 
 void printTestsPartA();
 void printTestsPartB();
 template <typename T>
 void insertionSort(T first, T last);
+template <typename T>
+void printArray(T, int);
 
 int countWords(const char *string) {
     int count = 0;
@@ -70,6 +71,15 @@ void insertionSort(T first, T const last) {
         }
         *j = valueToSort;
     }
+}
+
+template <typename T>
+void printArray(T array, int n) {
+    for(int i = 0; i <= n; i++) {
+        cout << array[i] << ", ";
+    }
+
+    cout << endl;
 }
 
 void printTestsPartA() {
@@ -174,20 +184,13 @@ void printTestsPartB() {
     cout << " actual " << strcmp_ign_wsp("aaa ", "ab") << "\n" << endl;
 }
 
-template <typename T>
-void printArray(T array, int n) {
-    for(int i = 0; i <= n; i++) {
-        cout << array[i] << " ";
-    }
-
-    cout << endl;
-}
-
 void printTestsPartC() {
     int array1[]= {2,1,6,4,2,-1,0,222};
     char array2[] = {'f', 'a', 'x', 'b', 'g'};
 
-    cout << "2,1,6,4,2,-1,0,222" << endl;
+    cout << "<-- Tests fuer Teilaufgabe C -->" << endl;
+
+    cout << "2, 1, 6, 4, 2,-1 , 0, 222" << endl;
     insertionSort(array1, &array1[7]);
     printArray(array1, 7);
 
@@ -198,10 +201,10 @@ void printTestsPartC() {
 
 int main() {
     // Tests für Aufgabenteil A
-    //printTestsPartA();
+    printTestsPartA();
 
     // Tests für Aufgabenteil B
-    //printTestsPartB();
+    printTestsPartB();
 
     // Tests für Aufgabenteil C
     printTestsPartC();
