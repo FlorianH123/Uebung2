@@ -56,8 +56,7 @@ void insertionSort(T first, T const last) {
     auto valueToSort = *first;
     T j;
     T firstValue = first;
-    T tmp;
-    //the range is empty if first and last are equal
+
     if (first == last) {
         return;
     }
