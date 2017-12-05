@@ -1,12 +1,27 @@
 #include <iostream>
+
 using namespace std;
 
 void printTestsPartA();
 void printTestsPartB();
+void printTestsPartC();
 template <typename T>
 void insertionSort(T first, T last);
 template <typename T>
 void printArray(T, int);
+
+int main() {
+    // Tests für Aufgabenteil A
+    printTestsPartA();
+
+    // Tests für Aufgabenteil B
+    printTestsPartB();
+
+    // Tests für Aufgabenteil C
+    printTestsPartC();
+
+    return 0;
+}
 
 int countWords(const char *string) {
     int count = 0;
@@ -196,17 +211,4 @@ void printTestsPartC() {
     cout << "f, a, x, b, g" << endl;
     insertionSort(array2, &array2[4]);
     printArray(array2, 4);
-}
-
-int main() {
-    // Tests für Aufgabenteil A
-    printTestsPartA();
-
-    // Tests für Aufgabenteil B
-    printTestsPartB();
-
-    // Tests für Aufgabenteil C
-    printTestsPartC();
-
-    return 0;
 }
