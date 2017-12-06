@@ -1,13 +1,6 @@
 #include <iostream>
+#include "main.hpp"
 using namespace std;
-
-void printTestsPartA();
-void printTestsPartB();
-void printTestsPartC();
-template <typename T>
-void insertionSort(T first, T last);
-template <typename T>
-void printArray(T, int);
 
 /**
  * Methode um die Anzahl an Woertern in einem char String zu zaehlen
@@ -70,7 +63,7 @@ int strcmp_ign_wsp(const char *s1, const char *s2) {
  * @param last  rechte Schranke des Arrays
  */
 template<typename T>
-void insertionSort(T first, T const last) {
+void insertionSort(T const first, T const last) {
     auto valueToSort = *first;
     T j;
     T firstValue = first;
